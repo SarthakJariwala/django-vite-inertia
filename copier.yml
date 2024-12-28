@@ -1,8 +1,0 @@
-project_name:
-  type: str
-  help: What is your Django project name?
-
-tailwind_css:
-  type: bool
-  help: Do you want to use Tailwind CSS?
-  default: true
