@@ -6,6 +6,14 @@ project_name:
   type: str
   help: What is your Django project name?
 
+database:
+  type: str
+  help: Which database do you want to use?
+  default: sqlite
+  choices:
+    - sqlite
+    - postgresql
+
 tailwind_css:
   type: bool
   help: Do you want to use Tailwind CSS?
