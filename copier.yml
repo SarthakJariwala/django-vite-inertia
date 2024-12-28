@@ -1,3 +1,7 @@
+# Configuration
+_subdirectory: project
+
+# Prompts
 project_name:
   type: str
   help: What is your Django project name?
