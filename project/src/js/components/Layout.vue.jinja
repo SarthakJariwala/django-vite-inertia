@@ -1,0 +1,16 @@
+<script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+</script>
+
+<template>
+    <div>
+        <nav {% if tailwind_css %} class="flex items-start justify-center" {% endif %}>
+            <ul {% if tailwind_css %} class="flex space-x-4" {% endif %}>
+                <li><Link href="/">Home</Link></li>
+            </ul>
+        </nav>
+        <div {% if tailwind_css %} class="flex items-center justify-center mt-32" {% endif %}>
+            <slot />
+        </div>
+    </div>
+</template>
