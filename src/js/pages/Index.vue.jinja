@@ -1,0 +1,15 @@
+<script setup>
+const props = defineProps({
+    events: Object,
+});
+</script>
+
+<template>
+    <div>
+        <h2 {% if tailwind_css %} class="text-3xl font-bold underline" {% endif %}>This is the home page</h2>
+        <ul>
+            <h2>Events</h2>
+            <li v-for="(event, index) in events" :key="index">{{ event }}</li>
+        </ul>
+    </div>
+</template>
