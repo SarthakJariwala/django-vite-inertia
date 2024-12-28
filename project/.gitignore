@@ -6,6 +6,9 @@ dist/
 wheels/
 *.egg-info
 
+# Environment variables
+.env
+
 # Django-generated files
 db.sqlite3
 static/
