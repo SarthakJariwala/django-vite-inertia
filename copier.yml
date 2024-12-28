@@ -14,6 +14,13 @@ database:
     - sqlite
     - postgresql
 
+frontend:
+  type: str
+  help: Which frontend framework do you want to use?
+  default: vue
+  choices:
+    - vue
+
 tailwind_css:
   type: bool
   help: Do you want to use Tailwind CSS?

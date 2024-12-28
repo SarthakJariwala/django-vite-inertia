@@ -1,19 +1,24 @@
 import "vite/modulepreload-polyfill";
-import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import axios from "axios";
+{% if frontend == 'vue' %}
+import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { createApp, h } from "vue";
-import "../css/main.css";
 import Layout from "./components/Layout.vue";
+{% endif %}
 
+import "../css/main.css";
+
+{% if frontend == 'vue' %}
 const pages = import.meta.glob("./pages/**/*.vue");
+{% endif %}
 
 document.addEventListener("DOMContentLoaded", () => {
 	axios.defaults.xsrfCookieName = "csrftoken";
 	axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
 	InertiaProgress.init({ showSpinner: true });
-
+	{% if frontend == 'vue' %}
 	createInertiaApp({
 		resolve: async (name) => {
 			const page = (await pages[`./pages/${name}.vue`]()).default;
@@ -25,5 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
 				.use(plugin)
 				.mount(el);
 		},
-	});
+	});{% endif %}
 });

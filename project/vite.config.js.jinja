@@ -1,6 +1,7 @@
 import { join, resolve } from "node:path";
-
+{% if frontend == 'vue' %}
 import vue from "@vitejs/plugin-vue";
+{% endif %}
 import { defineConfig, loadEnv } from "vite";
 
 {% if tailwind_css %}
@@ -22,11 +23,11 @@ export default defineConfig((mode) => {
 	const OUTPUT_DIR = "./src/dist";
 
 	return {
-		plugins: [vue()],
+		plugins: [{% if frontend == 'vue' %}vue(){% endif %}],
 		resolve: {
 			alias: {
 				"@": resolve(INPUT_DIR),
-				vue: "vue/dist/vue.esm-bundler.js",
+				{% if frontend == 'vue' %}vue: "vue/dist/vue.esm-bundler.js",{% endif %}
 			},
 		},
 		root: resolve(INPUT_DIR),
