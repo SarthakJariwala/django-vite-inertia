@@ -1,0 +1,72 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    command: uv run python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    restart: unless-stopped
+    {% if docker_dev %}depends_on:
+      db:
+        condition: service_healthy{% endif %}
+    networks:
+      - app-network
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - .venv/
+            - node_modules/
+        - action: rebuild
+          path: ./pyproject.toml
+  vite:
+    build:
+      context: .
+      dockerfile: vite.Dockerfile
+    command: npm run dev
+    tty: true
+    ports:
+      - "5173:5173"
+    env_file:
+      - "./.env"
+    environment:
+      - DJANGO_VITE_DEV_SERVER_HOST=localhost
+      - DJANGO_VITE_DEV_SERVER_PORT=5173
+    networks:
+      - app-network
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - node_modules/
+            - .venv/
+        - action: rebuild
+          path: ./package.json
+  {% if docker_dev %}db:
+    image: postgres:17-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB={{ project_name }}
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
+      interval: 2s
+      retries: 10{% endif %}
+
+networks:
+  app-network:
+    driver: bridge
+
+{% if docker_dev %}volumes:
+  postgres_data:{% endif %}
