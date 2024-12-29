@@ -9,8 +9,10 @@ dependencies = [
     "django>=5.1.4",
     "django-vite>=3.0.5",
     "inertia-django>=0.6.0",
-    {% if database == 'postgresql' %}"psycopg>=3.2.3",
-    "psycopg-binary>=3.2.3",{% endif %}
+    {% if database == 'postgresql' %}
+    "psycopg>=3.2.3",
+    "psycopg-binary>=3.2.3",
+    {% endif %}
     "whitenoise>=6.8.2",
     "gunicorn>=23.0.0",
 ]

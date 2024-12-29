@@ -9,9 +9,11 @@ services:
     env_file:
       - ./.env
     restart: unless-stopped
-    {% if docker_dev %}depends_on:
+    {% if docker_dev %}
+    depends_on:
       db:
-        condition: service_healthy{% endif %}
+        condition: service_healthy
+    {% endif %}
     networks:
       - app-network
     develop:
@@ -49,7 +51,8 @@ services:
             - .venv/
         - action: rebuild
           path: ./package.json
-  {% if docker_dev %}db:
+  {% if docker_dev %}
+  db:
     image: postgres:17-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
@@ -62,11 +65,13 @@ services:
     healthcheck:
       test: pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
       interval: 2s
-      retries: 10{% endif %}
+      retries: 10
+{% endif %}
 
 networks:
   app-network:
     driver: bridge
-
-{% if docker_dev %}volumes:
-  postgres_data:{% endif %}
+{% if docker_dev %}
+volumes:
+  postgres_data:
+{% endif %}
