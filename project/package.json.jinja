@@ -4,26 +4,25 @@
     "dev": "{% if tailwind_css %}TAILWIND_MODE=watch {% endif %}vite",
     "build": "{% if tailwind_css %}TAILWIND_MODE=build {% endif %}vite build"
   },
+  "overrides": {
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
+  },
   "dependencies": {
-    {% if frontend == 'vue' %}
-    "vue": "^3.5.13",
-    "@inertiajs/inertia-vue3": "^0.6.0",
-    {% endif %}
+    {% if frontend == 'vue' %}"vue": "^3.5.13",
+    "@inertiajs/inertia-vue3": "^0.6.0",{% endif %}
     "@inertiajs/inertia": "^0.11.1",
     "@inertiajs/progress": "^0.2.7",
     "axios": "^1.7.9"
   },
   "devDependencies": {
-    {% if frontend == 'vue' %}
-    "@vitejs/plugin-vue": "^5.2.1",
-    {% endif %}
-    {% if tailwind_css %}
-    "autoprefixer": "^10.4.20",
+    {% if frontend == 'vue' %}"@vitejs/plugin-vue": "^5.2.1",{% endif %}
+    {% if tailwind_css %}"autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
     "postcss-simple-vars": "^7.0.1",
-    "tailwindcss": "^3.4.17",
-    {% endif %}
+    "tailwindcss": "^3.4.17",{% endif %}
     "vite": "^6.0.6"
   }
 }
