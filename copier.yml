@@ -25,3 +25,13 @@ tailwind_css:
   type: bool
   help: Do you want to use Tailwind CSS?
   default: true
+
+docker_dev:
+  type: bool
+  help: Do you want to use Docker for development?
+  default: true
+
+docker_prod:
+  type: bool
+  help: Do you want to use Docker for production?
+  default: true
