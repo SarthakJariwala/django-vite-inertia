@@ -38,8 +38,11 @@ export default defineConfig((mode) => {
 		},
 		{% endif %}
 		server: {
-			host: env.DJANGO_VITE_DEV_SERVER_HOST,
-			port: env.DJANGO_VITE_DEV_SERVER_PORT,
+			host: "0.0.0.0",
+			port: env.DJANGO_VITE_DEV_SERVER_PORT || 5173,
+			watch: {
+				usePolling: true,
+			},
 		},
 		build: {
 			manifest: "manifest.json",

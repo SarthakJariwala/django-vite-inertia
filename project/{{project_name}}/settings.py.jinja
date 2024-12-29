@@ -148,8 +148,8 @@ STATIC_ROOT = BASE_DIR / "static"
 DJANGO_VITE = {
     "default": {
         "dev_mode": DEBUG,
-        "dev_server_host": "localhost",
-        "dev_server_port": 5173,
+        "dev_server_host": env.str("DJANGO_VITE_DEV_SERVER_HOST", default="localhost"),
+        "dev_server_port": env.int("DJANGO_VITE_DEV_SERVER_PORT", default=5173),
     }
 }
 # Where ViteJS assets are built.
