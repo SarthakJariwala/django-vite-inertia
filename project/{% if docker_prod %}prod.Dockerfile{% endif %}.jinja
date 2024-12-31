@@ -49,8 +49,6 @@ COPY --chown=django:django . /code
 
 RUN DEBUG=False python ./manage.py collectstatic --noinput
 RUN chown django:django -R static
-# Run migrations
-RUN python ./manage.py migrate --noinput
 
 USER django
 
