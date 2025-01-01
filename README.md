@@ -11,6 +11,9 @@ Other configurations:
   - Development
   - Production
 
+> [!NOTE]
+> If you don't want to use Vue, you can still generate the project using this template and replace Vue specific files with React or Svelte or any other frontend supported by Inertia.
+
 ## Getting started
 
 - Using [uv](https://docs.astral.sh/uv/) (Recommended)
@@ -42,7 +45,3 @@ Or
 cd awesome-project
 copier update
 ```
-
----
-
-> Note: If you don't want to use Vue, you can still generate the project using this template and replace Vue specific files with React or Svelte or any other frontend supported by Inertia.
