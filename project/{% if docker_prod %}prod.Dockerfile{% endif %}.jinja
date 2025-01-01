@@ -46,7 +46,7 @@ COPY --from=node-builder /code/static /code/static
 WORKDIR /code
 COPY --chown=django:django . /code
 
-RUN DEBUG=False python ./manage.py collectstatic --noinput
+RUN DEBUG=False python ./manage.py collectstatic --noinput --settings={{ project_name }}.settings_production
 RUN chown django:django -R static
 
 USER django
