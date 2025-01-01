@@ -16,6 +16,9 @@ Other configurations:
 ![Demo](./demo.gif)
 
 > [!NOTE]
+> SQLite is configured for production use if you choose to use it.
+
+> [!NOTE]
 > If you don't want to use Vue, you can still generate the project using this template and [replace Vue specific files with React or Svelte](https://inertiajs.com/client-side-setup) or any other frontend supported by Inertia.
 > Also, open to PRs to add more frontend frameworks.
 
