@@ -39,9 +39,8 @@ docker_prod:
 _message_after_copy: |
   Your Django + Vite + Inertia project "{{ project_name }}" has been created successfully!
 
-  To start the development server, run:
+  To start the development server, navigate to your project and run:
 
-  $ cd {{ project_name }}
   {% if docker_dev %}
   $ docker compose up --watch
   {% else %}
