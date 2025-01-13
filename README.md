@@ -7,7 +7,10 @@ Set up your Django project with [Vite](https://vite.dev/) and [Inertia](https://
 Other configurations:
 
 - Database (PostgreSQL, SQLite)
-- Vue/React
+- Frontend:
+  - Vue
+  - React
+  - Svelte
 - Tailwind CSS (optional)
 - Docker (optional)
   - Development
