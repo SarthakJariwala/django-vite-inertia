@@ -17,7 +17,6 @@ database:
 frontend:
   type: str
   help: Which frontend framework do you want to use?
-  default: vue
   choices:
     - vue
     - react
