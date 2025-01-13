@@ -4,7 +4,7 @@ import vue from "@vitejs/plugin-vue";
 {% elif frontend == 'react' %}
 import react from '@vitejs/plugin-react';
 {% elif frontend == 'svelte' %}
-import svelte from '@sveltejs/vite-plugin-svelte';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 {% endif %}
 import { defineConfig, loadEnv } from "vite";
 {% if tailwind_css %}
