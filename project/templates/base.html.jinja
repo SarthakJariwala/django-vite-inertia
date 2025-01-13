@@ -1,25 +1,31 @@
-{% raw %}{% load django_vite %}{% endraw %}
-
+{% raw %}
+    {% load django_vite %}
+{% endraw %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="csrf-token" content="{{ csrf_token }}" />
-
-    {% raw %}{% vite_hmr_client %}{% endraw %}
-    {% if frontend == 'react' %}{% raw %}{% vite_react_refresh %}
-    {% vite_asset 'js/main.jsx' %}{% endraw %}
-    {% else %}
-    {% raw %}{% vite_asset 'js/main.js' %}{% endraw %}
-    {% endif %}
-
-    <title>Django Inertia</title>
-  </head>
-  <body>
-    {% raw %}{% block inertia %}
-
-    {% endblock %}{% endraw %}
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="csrf-token" content="{{ csrf_token }}" />
+        {% raw %}
+            {% vite_hmr_client %}
+        {% endraw %}
+        {% if frontend == 'react' %}
+            {% raw %}
+                {% vite_react_refresh %}
+                {% vite_asset 'js/main.jsx' %}
+            {% endraw %}
+        {% else %}
+            {% raw %}
+                {% vite_asset 'js/main.js' %}
+            {% endraw %}
+        {% endif %}
+        <title>Django Inertia</title>
+    </head>
+    <body>
+        {% raw %}
+            {% block inertia %}{% endblock %}
+        {% endraw %}
+    </body>
 </html>
