@@ -1,6 +1,8 @@
 import { join, resolve } from "node:path";
 {% if frontend == 'vue' %}
 import vue from "@vitejs/plugin-vue";
+{% else if frontend == 'react' %}
+import react from '@vitejs/plugin-react'
 {% endif %}
 import { defineConfig, loadEnv } from "vite";
 
@@ -23,11 +25,12 @@ export default defineConfig((mode) => {
 	const OUTPUT_DIR = "./src/dist";
 
 	return {
-		plugins: [{% if frontend == 'vue' %}vue(){% endif %}],
+		plugins: [{% if frontend == 'vue' %}vue(){% else if frontend == 'react' %}react(){% endif %}],
 		resolve: {
 			alias: {
 				"@": resolve(INPUT_DIR),
-				{% if frontend == 'vue' %}vue: "vue/dist/vue.esm-bundler.js",{% endif %}
+				{% if frontend == 'vue' %}vue: "vue/dist/vue.esm-bundler.js",
+				{% else if frontend == 'react' %}react: "react/jsx-runtime",{% endif %}
 			},
 		},
 		root: resolve(INPUT_DIR),
