@@ -2,16 +2,16 @@ import { Link } from "@inertiajs/inertia-react";
 
 const Layout = ({ children }) => (
 	<>
-	  <div>
-      <nav {% if tailwind_css %} class="flex items-start justify-center" {% endif %}>
-        <ul {% if tailwind_css %} class="flex space-x-4" {% endif %}>
-            <li><Link href="/">Home</Link></li>
-        </ul>
-      </nav>
-      <div {% if tailwind_css %} class="flex items-center justify-center mt-32" {% endif %}>
-        {children}
-      </div>
-    </div>
+		<div>
+			<nav className="flex items-start justify-center">
+				<ul className="flex space-x-4">
+					<li>
+						<Link href="/">Home</Link>
+					</li>
+				</ul>
+			</nav>
+			<div className="flex items-center justify-center mt-32">{children}</div>
+		</div>
 	</>
 );
 
