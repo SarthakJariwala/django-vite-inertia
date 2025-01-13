@@ -9,7 +9,7 @@ services:
     env_file:
       - ./.env
     restart: unless-stopped
-    {% if docker_dev %}
+    {% if docker_dev and database == 'postgresql' %}
     depends_on:
       db:
         condition: service_healthy
@@ -51,7 +51,7 @@ services:
             - .venv/
         - action: rebuild
           path: ./package.json
-  {% if docker_dev %}
+  {% if docker_dev and database == 'postgresql' %}
   db:
     image: postgres:17-alpine
     volumes:
@@ -73,7 +73,7 @@ services:
 networks:
   app-network:
     driver: bridge
-{% if docker_dev %}
+{% if docker_dev and database == 'postgresql' %}
 volumes:
   postgres_data:
 {% endif %}
