@@ -29,8 +29,7 @@ export default defineConfig((mode) => {
 		resolve: {
 			alias: {
 				"@": resolve(INPUT_DIR),
-				{% if frontend == 'vue' %}vue: "vue/dist/vue.esm-bundler.js",
-				{% elif frontend == 'react' %}react: "react/jsx-runtime",{% endif %}
+				{% if frontend == 'vue' %}vue: "vue/dist/vue.esm-bundler.js",{% endif %}
 			},
 		},
 		root: resolve(INPUT_DIR),
