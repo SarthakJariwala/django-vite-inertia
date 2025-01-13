@@ -23,7 +23,8 @@
     "axios": "^1.7.9"
   },
   "devDependencies": {
-    {% if frontend == 'vue' %}"@vitejs/plugin-vue": "^5.2.1",{% endif %}
+    {% if frontend == 'vue' %}"@vitejs/plugin-vue": "^5.2.1",
+    {% elif frontend == 'react' %}"@vitejs/plugin-react": "^4.3.4",{% endif %}
     {% if tailwind_css %}
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
