@@ -2,22 +2,27 @@ import "vite/modulepreload-polyfill";
 import { InertiaProgress } from "@inertiajs/progress";
 import axios from "axios";
 {% if frontend == 'vue' %}
-import { createInertiaApp } from "@inertiajs/inertia-vue3";
+import { createInertiaApp } from "@inertiajs/vue3";
 import { createApp, h } from "vue";
 import Layout from "./components/Layout.vue";
 {% elif frontend == 'react' %}
 import React from 'react';
 import { createRoot } from "react-dom/client";
-import { createInertiaApp } from '@inertiajs/inertia-react';
+import { createInertiaApp } from '@inertiajs/react';
 import Layout from './components/Layout';
+{% elif frontend == 'svelte' %}
+import { createInertiaApp } from "@inertiajs/svelte";
+import { mount } from "svelte";
 {% endif %}
 
 import "../css/main.css";
 
 {% if frontend == 'vue' %}
-const pages = import.meta.glob("./pages/**/*.vue");
+const pages = import.meta.glob("./pages/**/*.vue", { eager: true });
 {% elif frontend == 'react' %}
-const pages = import.meta.glob('./pages/*.jsx');
+const pages = import.meta.glob("./pages/**/*.jsx", { eager: true });
+{% elif frontend == 'svelte' %}
+const pages = import.meta.glob("./pages/**/*.svelte", { eager: true });
 {% endif %}
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,11 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
     resolve: async name => {
       const page = (await pages[`./pages/${name}.jsx`]()).default;
       page.layout = page.layout || Layout
-
       return page
     },
     setup({ el, App, props }) {
 		createRoot(el).render(<App {...props} />);
 	},
-  });{% endif %}
+  });
+  {% elif frontend == 'svelte' %}
+  createInertiaApp({
+    resolve: (name) => {
+      const page = (await pages[`./pages/${name}.svelte`]()).default;
+      page.layout = page.layout || Layout
+      return page
+    },
+    setup({ el, App, props }) {
+      mount(App, { target: el, props });
+    },
+  });
+  {% endif %}
 });

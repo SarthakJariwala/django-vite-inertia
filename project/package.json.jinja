@@ -18,6 +18,9 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "@inertiajs/react": "^2.0.0",
+    {% elif frontend == 'svelte' %}
+    "svelte": "^5.0.0",
+    "@inertiajs/svelte": "^1.2.0",
     {% endif %}
     "@inertiajs/inertia": "^0.11.1",
     "@inertiajs/progress": "^0.2.7",
@@ -25,7 +28,8 @@
   },
   "devDependencies": {
     {% if frontend == 'vue' %}"@vitejs/plugin-vue": "^5.2.1",
-    {% elif frontend == 'react' %}"@vitejs/plugin-react": "^4.3.4",{% endif %}
+    {% elif frontend == 'react' %}"@vitejs/plugin-react": "^4.3.4",
+    {% elif frontend == 'svelte' %}"@sveltejs/vite-plugin-svelte": "^5.0.0",{% endif %}
     {% if tailwind_css %}
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",

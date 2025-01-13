@@ -20,6 +20,7 @@ frontend:
   choices:
     - vue
     - react
+    - svelte
 
 tailwind_css:
   type: bool
