@@ -57,9 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
   {% elif frontend == 'svelte' %}
   createInertiaApp({
     resolve: (name) => {
-      const page = (await pages[`./pages/${name}.svelte`]()).default;
-      page.layout = page.layout || Layout
-      return page
+      const page = pages[`./pages/${name}.svelte`];
+      return page;
     },
     setup({ el, App, props }) {
       mount(App, { target: el, props });
