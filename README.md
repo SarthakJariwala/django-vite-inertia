@@ -7,7 +7,7 @@ Set up your Django project with [Vite](https://vite.dev/) and [Inertia](https://
 Other configurations:
 
 - Database (PostgreSQL, SQLite)
-- Vue
+- Vue/React
 - Tailwind CSS (optional)
 - Docker (optional)
   - Development
@@ -17,10 +17,6 @@ Other configurations:
 
 > [!NOTE]
 > SQLite is configured for production use if you choose to use it.
-
-> [!NOTE]
-> If you don't want to use Vue, you can still generate the project using this template and [replace Vue specific files with React or Svelte](https://inertiajs.com/client-side-setup) or any other frontend supported by Inertia.
-> Also, open to PRs to add more frontend frameworks.
 
 ## Getting started
 
