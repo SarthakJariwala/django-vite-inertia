@@ -7,14 +7,20 @@ import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv } from "vite";
 
 {% if tailwind_css %}
+import postcssImport from "postcss-import";
+import postcssSimpleVars from "postcss-simple-vars";
+import tailwindcssNesting from "tailwindcss/nesting";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
+
 const postcssConfig = {
-	plugins: [
-		require("postcss-import")(),
-		require("postcss-simple-vars")(),
-		require("tailwindcss/nesting")(),
-		require("tailwindcss")(),
-		require("autoprefixer")(),
-	],
+  plugins: [
+    postcssImport(),
+    postcssSimpleVars(),
+    tailwindcssNesting(),
+    tailwindcss(),
+    autoprefixer(),
+  ],
 };
 {% endif %}
 
