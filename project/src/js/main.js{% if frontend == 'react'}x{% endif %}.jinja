@@ -6,10 +6,10 @@ import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { createApp, h } from "vue";
 import Layout from "./components/Layout.vue";
 {% elif frontend == 'react' %}
-import React from 'react'
-import { render } from 'react-dom'
-import { createInertiaApp } from '@inertiajs/inertia-react'
-import Layout from '../components/Layout';
+import React from 'react';
+import { createRoot } from "react-dom/client";
+import { createInertiaApp } from '@inertiajs/inertia-react';
+import Layout from './components/Layout';
 {% endif %}
 
 import "../css/main.css";
@@ -17,7 +17,7 @@ import "../css/main.css";
 {% if frontend == 'vue' %}
 const pages = import.meta.glob("./pages/**/*.vue");
 {% elif frontend == 'react' %}
-const pages = import.meta.glob('../pages/*.jsx');
+const pages = import.meta.glob('./pages/*.jsx');
 {% endif %}
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	{% elif frontend == 'react' %}
 	createInertiaApp({
     resolve: async name => {
-      const page = (await pages[`../pages/${name}.jsx`]()).default;
+      const page = (await pages[`./pages/${name}.jsx`]()).default;
       page.layout = page.layout || Layout
 
       return page
     },
     setup({ el, App, props }) {
-      render(<App {...props} />, el)
-    },
+		createRoot(el).render(<App {...props} />);
+	},
   });{% endif %}
 });
