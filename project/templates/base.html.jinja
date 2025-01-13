@@ -1,4 +1,4 @@
-{% load django_vite %}
+{% raw %}{% load django_vite %}{% endraw %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,14 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token }}" />
 
-    {% vite_hmr_client %}
-    {% vite_asset 'js/main.js' %}
+    {% raw %}{% vite_hmr_client %}{% endraw %}
+    {% if frontend == 'react' %}{% raw %}{% vite_react_refresh %}{% endraw %}{% endif %}
+    {% raw %}{% vite_asset 'js/main.js' %}{% endraw %}
 
     <title>Django Inertia</title>
   </head>
   <body>
-    {% block inertia %}
+    {% raw %}{% block inertia %}
 
-    {% endblock %}
+    {% endblock %}{% endraw %}
   </body>
 </html>

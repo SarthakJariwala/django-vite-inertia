@@ -20,6 +20,7 @@ frontend:
   default: vue
   choices:
     - vue
+    - react
 
 tailwind_css:
   type: bool

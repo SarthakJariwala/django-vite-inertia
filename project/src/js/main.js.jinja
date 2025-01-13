@@ -5,12 +5,19 @@ import axios from "axios";
 import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { createApp, h } from "vue";
 import Layout from "./components/Layout.vue";
+{% else if frontend == 'react' %}
+import React from 'react'
+import { render } from 'react-dom'
+import { createInertiaApp } from '@inertiajs/inertia-react'
+import Layout from '../components/Layout';
 {% endif %}
 
 import "../css/main.css";
 
 {% if frontend == 'vue' %}
 const pages = import.meta.glob("./pages/**/*.vue");
+{% else if frontend == 'react' %}
+const pages = import.meta.glob('../pages/*.jsx');
 {% endif %}
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -30,5 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
 				.use(plugin)
 				.mount(el);
 		},
-	});{% endif %}
+	});
+	{% else if frontend == 'react' %}
+	createInertiaApp({
+    resolve: async name => {
+      const page = (await pages[`../pages/${name}.jsx`]()).default;
+      page.layout = page.layout || Layout
+
+      return page
+    },
+    setup({ el, App, props }) {
+      render(<App {...props} />, el)
+    },
+  });{% endif %}
 });
