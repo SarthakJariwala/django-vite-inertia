@@ -18,9 +18,9 @@ import { mount } from "svelte";
 import "../css/main.css";
 
 {% if frontend == 'vue' %}
-const pages = import.meta.glob("./pages/**/*.vue", { eager: true });
+const pages = import.meta.glob("./pages/**/*.vue");
 {% elif frontend == 'react' %}
-const pages = import.meta.glob("./pages/**/*.jsx", { eager: true });
+const pages = import.meta.glob("./pages/**/*.jsx");
 {% elif frontend == 'svelte' %}
 const pages = import.meta.glob("./pages/**/*.svelte", { eager: true });
 {% endif %}
