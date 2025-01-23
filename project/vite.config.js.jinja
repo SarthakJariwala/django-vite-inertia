@@ -8,21 +8,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 {% endif %}
 import { defineConfig, loadEnv } from "vite";
 {% if tailwind_css %}
-import postcssImport from "postcss-import";
-import postcssSimpleVars from "postcss-simple-vars";
-import tailwindcssNesting from "tailwindcss/nesting";
-import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
-
-const postcssConfig = {
-  plugins: [
-    postcssImport(),
-    postcssSimpleVars(),
-    tailwindcssNesting(),
-    tailwindcss(),
-    autoprefixer(),
-  ],
-};
+import tailwindcss from '@tailwindcss/vite';
 {% endif %}
 
 export default defineConfig((mode) => {
@@ -33,6 +19,7 @@ export default defineConfig((mode) => {
 
 	return {
 		plugins: [
+	        {% if tailwind_css %}tailwindcss(),{% endif %}
 			{% if frontend == 'vue' %}vue()
 			{% elif frontend == 'react' %}react()
 			{% elif frontend == 'svelte' %}svelte(){% endif %}
@@ -45,11 +32,6 @@ export default defineConfig((mode) => {
 		},
 		root: resolve(INPUT_DIR),
 		base: "/static/",
-		{% if tailwind_css %}
-		css: {
-			postcss: postcssConfig,
-		},
-		{% endif %}
 		server: {
 			host: "0.0.0.0",
 			port: env.DJANGO_VITE_DEV_SERVER_PORT || 5173,
