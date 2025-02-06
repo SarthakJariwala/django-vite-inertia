@@ -11,6 +11,8 @@ wheels/
 
 # Django-generated files
 db.sqlite3
+db.sqlite3-wal
+db.sqlite3-shm
 static/
 media/
 
