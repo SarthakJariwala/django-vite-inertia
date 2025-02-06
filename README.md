@@ -23,14 +23,21 @@ Other configurations:
 
 ## Getting started
 
-- Using [uv](https://docs.astral.sh/uv/) (Recommended)
+- (Recommended) Using [uv](https://docs.astral.sh/uv/) or [pipx](https://pipx.pypa.io/stable/)
 
 ```bash
 mkdir awesome-project
 uvx copier copy gh:sarthakjariwala/django-vite-inertia awesome-project
 ```
 
-- Alternatively, you may have installed [copier](https://copier.readthedocs.io/en/stable/) through other means such as `pipx`, etc.
+OR
+
+```bash
+mkdir awesome-project
+pipx run copier copy gh:sarthakjariwala/django-vite-inertia awesome-project
+```
+
+- Alternatively, you may have installed [copier](https://copier.readthedocs.io/en/stable/) through other means.
 
 ```bash
 mkdir awesome-project
