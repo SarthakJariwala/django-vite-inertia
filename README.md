@@ -26,15 +26,15 @@ Other configurations:
 - (Recommended) Using [uv](https://docs.astral.sh/uv/) or [pipx](https://pipx.pypa.io/stable/)
 
 ```bash
-mkdir awesome-project
-uvx copier copy gh:sarthakjariwala/django-vite-inertia awesome-project
+mkdir myproject
+uvx copier copy gh:sarthakjariwala/django-vite-inertia myproject
 ```
 
 OR
 
 ```bash
-mkdir awesome-project
-pipx run copier copy gh:sarthakjariwala/django-vite-inertia awesome-project
+mkdir myproject
+pipx run copier copy gh:sarthakjariwala/django-vite-inertia myproject
 ```
 
 - Alternatively, you may have installed [copier](https://copier.readthedocs.io/en/stable/) through other means.
