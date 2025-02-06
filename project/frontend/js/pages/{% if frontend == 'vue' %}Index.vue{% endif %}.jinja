@@ -1,14 +1,10 @@
-<script>
-    import Layout from "../components/Layout.svelte";
-</script>
-
-<Layout>
+<template>
     <div>
         <h2 {% if tailwind_css %}class="text-3xl font-bold underline"{% endif %}>
             This is the home page
         </h2>
         <p {% if tailwind_css %}class="text-lg font-mono"{% endif %}>
-            Find it in 'src/js/pages/Index.svelte'
+            Find it in 'frontend/js/pages/Index.vue'
         </p>
     </div>
-</Layout>
+</template>
