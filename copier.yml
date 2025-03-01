@@ -37,6 +37,11 @@ docker_prod:
   help: Do you want to use Docker for production?
   default: true
 
+starter_kit:
+  type: bool
+  help: Do you want to use a starter kit?
+  when: "{{ frontend == 'react'  and tailwind_css == 'true' }}"
+
 _message_after_copy: |
   Your Django + Vite + Inertia project "{{ project_name }}" has been created successfully!
 
