@@ -18,6 +18,15 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "@inertiajs/react": "^2.0.0",
+        {% if starter_kit %}
+    "@radix-ui/react-alert-dialog": "^1.1.6",
+    "@radix-ui/react-slot": "^1.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.477.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
+        {% endif %}
     {% elif frontend == 'svelte' %}
     "svelte": "^5.0.0",
     "@inertiajs/svelte": "^1.2.0",
