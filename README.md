@@ -1,70 +1,73 @@
-# Django with Vite and Inertia
+# Django with Vite and Inertia 🚀
 
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
-Set up your Django project with [Vite](https://vite.dev/) and [Inertia](https://inertiajs.com/).
-
-Other configurations:
-
-- Database (PostgreSQL, SQLite)
-- Frontend:
-  - Vue
-  - React
-  - Svelte
-- Tailwind CSS (optional)
-- Docker (optional)
-  - Development
-  - Production
+A modern template for supercharging your Django project with [Vite](https://vitejs.dev/) for lightning-fast frontend builds and [Inertia](https://inertiajs.com/) for seamless SPA-like experiences without the API complexity.
 
 ![Demo](./demo.gif)
 
-> [!NOTE]
-> SQLite is configured for production use if you choose to use it.
+## ✨ Features
 
-## Getting started
+- **Multiple Frontend Options**
 
-- (Recommended) Using [uv](https://docs.astral.sh/uv/) or [pipx](https://pipx.pypa.io/stable/)
+  - Vue
+  - React (with optional shadcn/ui components)
+  - Svelte
+
+- **Styling Options**
+
+  - Tailwind CSS (optional)
+  - Custom CSS
+
+- **Database Options**
+
+  - PostgreSQL
+  - SQLite (configured for production if selected)
+
+- **Development & Deployment**
+  - Docker support (optional)
+    - Development environment
+    - Production-ready setup
+
+## 🚦 Getting Started
+
+### Using [uv](https://docs.astral.sh/uv/) (Recommended)
 
 ```bash
 mkdir myproject
 uvx copier copy gh:sarthakjariwala/django-vite-inertia myproject
 ```
 
-OR
+### Using [pipx](https://pipx.pypa.io/stable/)
 
 ```bash
 mkdir myproject
 pipx run copier copy gh:sarthakjariwala/django-vite-inertia myproject
 ```
 
-- Alternatively, you may have installed [copier](https://copier.readthedocs.io/en/stable/) through other means.
+### Using [copier](https://copier.readthedocs.io/en/stable/)
 
 ```bash
 mkdir awesome-project
 copier copy gh:sarthakjariwala/django-vite-inertia awesome-project
 ```
 
-## Update project template
+## 🔄 Updating Your Project
 
-You can also get the latest changes in your project as this template evolves in the future.
+Keep your project up-to-date with the latest template changes:
 
 ```bash
 cd awesome-project
 uvx copier update
-```
-
-Or
-
-```bash
-cd awesome-project
+# OR
 copier update
 ```
 
-## License
+## 📜 License
 
 MIT License
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 Standing on the shoulders of giants:
 
