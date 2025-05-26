@@ -1,6 +1,6 @@
 from django.contrib.messages import get_messages
 from inertia.http import InertiaResponse
-
+from inertia.share import share
 
 class DataShareMiddleware(object):
     def __init__(self, get_response):
@@ -26,7 +26,7 @@ class DataShareMiddleware(object):
         if hasattr(response, 'request') and hasattr(response.request, 'inertia'):
             messages = self.collect_messages(request)
             if messages:
-                request.inertia.props['messages'] = messages
+                share(request, messages=messages)
                 # for now doesn't work with headers, cuz headers are not stored
                 # as field in InertiaResponse
                 # created MR for this https://github.com/inertiajs/inertia-django/pull/79
