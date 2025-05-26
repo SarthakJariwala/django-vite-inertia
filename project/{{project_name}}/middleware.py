@@ -1,6 +1,7 @@
 from django.contrib.messages import get_messages
 from inertia.http import InertiaResponse
-from inertia.share import share
+from inertia import share, InertiaResponse
+
 
 class DataShareMiddleware(object):
     def __init__(self, get_response):
