@@ -1,5 +1,4 @@
 from django.contrib.messages import get_messages
-from inertia.http import InertiaResponse
 from inertia import share, InertiaResponse
 
 
