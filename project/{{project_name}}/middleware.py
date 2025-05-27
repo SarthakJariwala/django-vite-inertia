@@ -27,15 +27,12 @@ class DataShareMiddleware(object):
             messages = self.collect_messages(request)
             if messages:
                 share(request, messages=messages)
-                # for now doesn't work with headers, cuz headers are not stored
-                # as field in InertiaResponse
-                # created MR for this https://github.com/inertiajs/inertia-django/pull/79
                 response = InertiaResponse(
                     request,
                     response.component,
                     response.props,
-                    response.template_data
-                    # response.headers - if the MR will be merged
+                    response.template_data,
+                    response.headers
                 )
 
         return response
