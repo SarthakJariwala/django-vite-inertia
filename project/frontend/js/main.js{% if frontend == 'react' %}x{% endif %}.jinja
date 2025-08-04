@@ -27,7 +27,7 @@ const pages = import.meta.glob("./pages/**/*.svelte", { eager: true });
 
 document.addEventListener("DOMContentLoaded", () => {
 	axios.defaults.xsrfCookieName = "csrftoken";
-	axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+	axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 	InertiaProgress.init({ showSpinner: true });
 	{% if frontend == 'vue' %}
