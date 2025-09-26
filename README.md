@@ -24,6 +24,10 @@ A modern template for supercharging your Django project with [Vite](https://vite
   - PostgreSQL
   - SQLite (configured for production if selected)
 
+- **Authentication Options**
+
+  - django-allauth (optional)
+
 - **Development & Deployment**
   - Docker support (optional)
     - Development environment

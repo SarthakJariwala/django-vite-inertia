@@ -43,6 +43,11 @@ starter_kit:
   default: false
   when: "{{ frontend == 'react' and tailwind_css }}"
 
+allauth:
+  type: bool
+  help: Do you want to use django-allauth for authentication?
+  default: true
+
 _message_after_copy: |
   Your Django + Vite + Inertia project "{{ project_name }}" has been created successfully!
 
