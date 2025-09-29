@@ -1,5 +1,8 @@
 <script>
     import Layout from "../components/Layout.svelte";
+    {% if starter_kit %}
+    import { Button } from "$lib/components/ui/button";
+    {% endif %}
 </script>
 
 <Layout>
@@ -10,5 +13,14 @@
         <p {% if tailwind_css %}class="text-lg font-mono"{% endif %}>
             Find it in 'frontend/js/pages/Index.svelte'
         </p>
+        {% if starter_kit %}
+        <p class="p-4">
+            You can also use shadcn-svelte components. Learn more at <Button
+                variant="link"
+                href="https://shadcn-svelte.com/docs">shadcn-svelte</Button
+            >
+        </p>
+        <Button>shadcn-svelte button</Button>
+        {% endif %}
     </div>
 </Layout>

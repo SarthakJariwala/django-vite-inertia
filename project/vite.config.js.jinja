@@ -28,6 +28,7 @@ export default defineConfig((mode) => {
 			alias: {
 				"@": resolve(INPUT_DIR, "js"),
 				{% if frontend == 'vue' %}vue: "vue/dist/vue.esm-bundler.js",{% endif %}
+				{% if frontend == 'svelte' %}$lib: resolve(INPUT_DIR, "js/lib"),{% endif %}
 			},
 		},
 		root: resolve(INPUT_DIR),

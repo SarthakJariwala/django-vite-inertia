@@ -41,7 +41,7 @@ starter_kit:
   type: bool
   help: Do you want to use a starter kit based on shadcn components?
   default: false
-  when: "{{ frontend == 'react' and tailwind_css }}"
+  when: "{{ (frontend == 'react' or frontend == 'svelte') and tailwind_css }}"
 
 allauth:
   type: bool

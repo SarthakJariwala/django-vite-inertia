@@ -10,9 +10,9 @@ A modern template for supercharging your Django project with [Vite](https://vite
 
 - **Multiple Frontend Options**
 
-  - Vue
   - React (with optional shadcn/ui components)
-  - Svelte
+  - Svelte (with optional shadcn-svelte coomponents)
+  - Vue
 
 - **Styling Options**
 
