@@ -1,5 +1,4 @@
 import "vite/modulepreload-polyfill";
-import { InertiaProgress } from "@inertiajs/progress";
 import axios from "axios";
 {% if frontend == 'vue' %}
 import { createInertiaApp } from "@inertiajs/vue3";
@@ -28,8 +27,6 @@ const pages = import.meta.glob("./pages/**/*.svelte", { eager: true });
 document.addEventListener("DOMContentLoaded", () => {
 	axios.defaults.xsrfCookieName = "csrftoken";
 	axios.defaults.xsrfHeaderName = "X-CSRFToken";
-
-	InertiaProgress.init({ showSpinner: true });
 	{% if frontend == 'vue' %}
 	createInertiaApp({
 		resolve: async (name) => {
