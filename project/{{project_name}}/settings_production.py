@@ -2,6 +2,16 @@ from .settings import *
 
 DEBUG = False
 
+# Override DJANGO_VITE dev_mode to match production DEBUG setting
+# This is necessary because DJANGO_VITE is evaluated at import time
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG,
+        "dev_server_host": env.str("DJANGO_VITE_DEV_SERVER_HOST", default="localhost"),
+        "dev_server_port": env.int("DJANGO_VITE_DEV_SERVER_PORT", default=5173),
+    }
+}
+
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Django security checklist settings
