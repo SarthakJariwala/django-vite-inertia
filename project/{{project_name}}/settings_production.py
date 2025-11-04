@@ -2,6 +2,10 @@ from .settings import *
 
 DEBUG = False
 
+# Override DJANGO_VITE dev_mode to match production DEBUG setting
+# This is necessary because DJANGO_VITE is evaluated at import time
+DJANGO_VITE["default"]["dev_mode"] = False
+
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Django security checklist settings
